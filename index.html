@@ -12,9 +12,40 @@
   <body>
     <div id="app">
       <div class="nav-bar"></div>
-
-      <h1>{{ intro }}</h1>
+      <div class="Opgave1">
+        <h1>{{Navn + Efternavn }}</h1>
+        <h2>{{combinedName + intro }}</h1>
+        <p>De første 3 bogstaver i eftermavn: {{Efternavn.substring(0,3)}}</p>
+      </div>
+      <div class="opgave2">
+        <h2>V-show efternavn udfra VisEfternavns værdi</h1>
+          <p>Fornvn: {{Navn}}</p>
+          <p v-show="VisEfternavn">Efternavn: {{Efternavn}}</p>
+      </div>
+      <div class="opagave3og4">
+        <p>Klik på kanppen, for at VisEfternavn skifter værdi</p>
+        <button v-if="VisEfternavn"class="button" @click="vis">Skjul efternavn</button>
+        <button v-if="!VisEfternavn"class="button" @click="vis">VisEfternavn</button>
       
+      </div>
+      <div class="opgave5">
+        <input v-model="nr" type="number" placeholder="Mobil nummer">
+        <p>Nr: {{nr}}</p>
+      </div>
+      
+      <div class="opagave3og4">
+        <h2>Vis alle navnene på de studerende</h2>
+        <div v-for="(stud,index) in Studerende" :key="stud.SFornavn">
+          <div>
+            <p>Fornavn: {{stud.SFornavn}}</p>
+            <p v-show="stud.VissEfternavn">Efternavn: {{stud.sEfternavn}}</p>
+            <p>Alder: {{stud.Alder}}</p>
+            <button v-if="VissEfternavn"class="button" @click="ViSkjulStuderendeEfternavn(index)">Skjul efternavn</button>
+            <button v-if="!VissEfternavn"class="button" @click="ViSkjulStuderendeEfternavn(index)">VisEfternavn</button>
+          </div>
+        </div>
+      </div>
+
     </div>
 
     <!-- Import App -->
