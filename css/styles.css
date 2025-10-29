@@ -1,4 +1,42 @@
-h1 {
-    font-size: 50px;
-    color: blue;
+h1,h2,h3{
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+div{
+  border-radius:25px ;
+    border: 2px;
+    padding:15px;
+
+}
+input{
+  border-color: aliceblue;
+  background-color:  rgb(215, 215, 230);
+}
+.button{
+  border-radius: 20px;
+  background-color:rgb(217, 212, 212);
+  border: 1px solid  rgb(146, 88, 198);
+  font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+  .Opgave1
+  {
+    background-color: rgb(118, 118, 174); 
+  }
+
+  .opgave2{
+    background-color: rgb(165, 165, 224); 
+  }
+
+  .opagave3og4{
+    background-color: rgb(203, 203, 239); 
+  }
+
+  .opgave5{
+    background-color: rgb(215, 215, 230); 
+  }
+
+  .ekstraOpgaverListe{
+    background-color: rgb(116, 218, 135);
+  }
+  .ekstraOpgaverOpretStuderende{
+        background-color: rgb(131, 182, 140);
   }
