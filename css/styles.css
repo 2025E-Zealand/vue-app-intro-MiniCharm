@@ -5,6 +5,7 @@ div{
   border-radius:25px ;
     border: 2px;
     padding:15px;
+
 }
 input{
   border-color: aliceblue;
@@ -31,4 +32,11 @@ input{
 
   .opgave5{
     background-color: rgb(215, 215, 230); 
+  }
+
+  .ekstraOpgaverListe{
+    background-color: rgb(116, 218, 135);
+  }
+  .ekstraOpgaverOpretStuderende{
+        background-color: rgb(131, 182, 140);
   }

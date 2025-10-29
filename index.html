@@ -9,41 +9,68 @@
     <!-- Import Vue.js -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   </head>
+  
   <body>
+    <!-- Alt der vil benytte app, skal skrives indenfor denne div -->
     <div id="app">
       <div class="nav-bar"></div>
       <div class="Opgave1">
+        <p><em>Opgave 1</em></p>
         <h1>{{Navn + Efternavn }}</h1>
         <h2>{{combinedName + intro }}</h1>
         <p>De første 3 bogstaver i eftermavn: {{Efternavn.substring(0,3)}}</p>
       </div>
       <div class="opgave2">
+        <p><em>Opgave 2</em></p>
         <h2>V-show efternavn udfra VisEfternavns værdi</h1>
-          <p>Fornvn: {{Navn}}</p>
-          <p v-show="VisEfternavn">Efternavn: {{Efternavn}}</p>
+          <p><b>Fornvn:</b> {{Navn}}</p>
+          <p v-show="VisEfternavn"><b>Efternavn: </b>{{Efternavn}}</p>
       </div>
       <div class="opagave3og4">
+        <p><em>Opgave 3 og 4</em></p>
         <p>Klik på kanppen, for at VisEfternavn skifter værdi</p>
         <button v-if="VisEfternavn"class="button" @click="vis">Skjul efternavn</button>
         <button v-if="!VisEfternavn"class="button" @click="vis">VisEfternavn</button>
       
       </div>
       <div class="opgave5">
+        <p><em>Opgave 5</em></p>
         <input v-model="nr" type="number" placeholder="Mobil nummer">
         <p>Nr: {{nr}}</p>
       </div>
       
       <div class="opagave3og4">
-        <h2>Vis alle navnene på de studerende</h2>
-        <div v-for="(stud,index) in Studerende" :key="stud.SFornavn">
+        <p><em>Opgave 3 og 4 fortsat</em></p>
+        <h2>Vis alle navnene på de studerende: Array af jason objekter</h2>
+        <div class="studentDiv" v-for="(stud,index) in Studerende" :key="stud.SFornavn">
           <div>
-            <p>Fornavn: {{stud.SFornavn}}</p>
-            <p v-show="stud.VissEfternavn">Efternavn: {{stud.sEfternavn}}</p>
-            <p>Alder: {{stud.Alder}}</p>
+            <p><b>Fornavn:</b> {{stud.SFornavn}}</p>
+            <p v-show="stud.VissEfternavn"><b>Efternavn:</b> {{stud.sEfternavn}}</p>
+            <p><b>Alder:</b> {{stud.Alder}}</p>
+            <p><b>Mobil nummer:</b> {{stud.mobilNr}}</p>
             <button v-if="VissEfternavn"class="button" @click="ViSkjulStuderendeEfternavn(index)">Skjul efternavn</button>
             <button v-if="!VissEfternavn"class="button" @click="ViSkjulStuderendeEfternavn(index)">VisEfternavn</button>
           </div>
         </div>
+      </div>
+
+      <h1>Ekstra opgaver</h1>
+      <div class="ekstraOpgaverOpretStuderende">
+        <h2>Opret studerende til Array</h2>
+        <input v-model="sNavn" type="text" placeholder="Navn">
+        <input v-model="sEfterNavn" type="text" placeholder="Efternavn">
+        <input v-model="sAlder" type="number" placeholder="Alder">
+        <input v-model="sMobil" type="number" placeholder="Mobil">
+        <button class="button" @click="sAddStuderende">Tilføj studerende</button>
+      </div>
+      <div class="ekstraOpgaverListe">
+        <h2>Vis alle studerende som en liste</h2>
+        <ul>
+          <li v-for="stud in StuderendeArray">{{stud.Afornavn}}</li>
+        </ul>
+        <h3>Opret studerende til listen</h3>
+        <input v-model="ANavn" type="text" placeholder="Navn">
+        <button class="button" @click="AddStuderendeArray">Tilføj studerende</button>
       </div>
 
     </div>
@@ -51,7 +78,7 @@
     <!-- Import App -->
     <script src="./js/main.js"></script>
 
-    <!-- Mount App -->
+    <!-- Mount App der har id app-->
     <script>
       const mountedApp = app.mount('#app')
     </script>
